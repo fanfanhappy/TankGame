@@ -23,7 +23,7 @@ public class MyPanel extends JPanel {
         g.fillRect(0,0,1000,750);
 
         //画出坦克-封装成方法
-        drawTank(myTank.getX(),myTank.getY(),g,0,0);
+        drawTank(myTank.getX(),myTank.getY(),g,1,0);
     }
 
     //编写方法画出坦克
