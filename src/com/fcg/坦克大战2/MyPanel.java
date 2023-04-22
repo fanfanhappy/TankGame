@@ -1,4 +1,4 @@
-package com.fcg.坦克大战1;
+package com.fcg.坦克大战2;
 
 import javax.swing.*;
 import java.awt.*;
