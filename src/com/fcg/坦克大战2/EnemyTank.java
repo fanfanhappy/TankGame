@@ -3,16 +3,15 @@ package com.fcg.坦克大战2;
 /**
  * @author 好女人蕾赛
  * @version 1.0
- * 要使用的坦克
  */
-public class MyTank extends Tank {
-    private int type = 0;
+public class EnemyTank extends Tank{
+    private int type = 1;
 
-    public MyTank(int x, int y, int speed) {
+    public EnemyTank(int x, int y, int speed) {
         super(x, y, speed);
     }
 
-    public MyTank() {
+    public EnemyTank() {
     }
 
     public int getType() {

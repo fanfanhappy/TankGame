@@ -17,6 +17,8 @@ public class MyFrame extends JFrame {
         this.add(mp);
         //设置区域大小
         this.setSize(1000,750);
+        //将实现了监听器后的画板放入框架中
+        this.addKeyListener(mp);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
