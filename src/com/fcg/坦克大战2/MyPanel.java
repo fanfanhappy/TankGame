@@ -16,12 +16,19 @@ public class MyPanel extends JPanel implements KeyListener {
     //定义我们的坦克
     MyTank myTank =null;
     Vector<EnemyTank> enemyTanks = new Vector<>();//存放敌人坦克的集合，用线程安全
+    int enemyCount = 3;
 
     public MyPanel()
     {
         myTank = new MyTank(100,100 , 10);//初始化我方坦克
-        enemyTanks.add(new EnemyTank(300 , 300 , 10));
-        enemyTanks.add(new EnemyTank(350 , 300 ,10));
+        for(int i = 0 ; i < enemyCount ; i++)
+        {
+            EnemyTank enemyTank = new EnemyTank(100 + (i * 50), 300, 10);
+            enemyTank.setDirect(2);
+            enemyTanks.add(enemyTank);
+
+        }
+
     }
 
     @Override
@@ -31,6 +38,7 @@ public class MyPanel extends JPanel implements KeyListener {
 
         //画出坦克-封装成方法
         drawTank(myTank.getX(),myTank.getY(),g,myTank.getDirect() , myTank.getType());
+        //画出敌方坦克
         for(EnemyTank o : enemyTanks)
         {
             drawTank(o.getX() , o.getY() , g , o.getDirect() , o.getType());
