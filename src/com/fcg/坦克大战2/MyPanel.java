@@ -24,8 +24,8 @@ public class MyPanel extends JPanel implements KeyListener {
         for(int i = 0 ; i < enemyCount ; i++)
         {
             EnemyTank enemyTank = new EnemyTank(100 + (i * 50), 300, 10);
-            enemyTank.setDirect(2);
-            enemyTanks.add(enemyTank);
+            enemyTank.setDirect(2);//设置敌方坦克的炮管朝向
+            enemyTanks.add(enemyTank);//添加敌方坦克到集合
 
         }
 
