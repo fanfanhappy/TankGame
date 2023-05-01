@@ -1,4 +1,4 @@
-package com.fcg.坦克大战3;
+package com.fcg.坦克大战4;
 
 /**
  * @author 好女人蕾赛
@@ -91,7 +91,7 @@ public class Shoot extends Thread{
             //测试子弹的发射位置
             System.out.println("x=" + x + "    y=" + y);
             //判断子弹的销毁,判断坐标是否到边界
-            if(!(x >= 0 && x <= 1000 && y >= 0 && y <= 750))
+            if(!(x >= 0 && x <= 1000 && y >= 0 && y <= 750 && isLive))
             {
                 isLive = false;
                 break;
