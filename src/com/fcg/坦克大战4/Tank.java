@@ -48,25 +48,39 @@ public class Tank {
     //坦克向上移动
     public void removeW()
     {
-        y -= speed;
+        if(getY() > 0)
+        {
+            y -= speed;
+        }
     }
 
     //坦克向下移动
     public void removeS()
     {
-        y += speed;
+        if(getY() + 60 < 750)
+        {
+            y += speed;
+        }
+
     }
 
     //坦克向左移动
     public void removeA()
     {
-        x -= speed;
+        if(getX() > 0)
+        {
+            x -= speed;
+        }
+
     }
 
     //坦克向右移动
     public void removeD()
     {
-        x += speed;
+        if(getX() + 60  < 1000)
+        {
+            x += speed;
+        }
     }
 
 }

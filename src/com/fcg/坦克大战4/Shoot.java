@@ -8,7 +8,7 @@ public class Shoot extends Thread{
     private int x;//子弹的横坐标
     private int y;//子弹的纵坐标
     private int direct;//子弹的射击方向
-    private int shootspeed = 10;//子弹的射击速度
+    private int shootspeed = 15;//子弹的射击速度
     private boolean isLive = true;//子弹的存货状态
 
     /*

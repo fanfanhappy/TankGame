@@ -33,7 +33,7 @@ public class MyPanel extends JPanel implements KeyListener, Runnable {
 
         for (int i = 0; i < enemyCount; i++) {
             //创建敌方坦克
-            EnemyTank enemyTank = new EnemyTank(100 + (i * 50), 300, 7);
+            EnemyTank enemyTank = new EnemyTank(100 + (i * 50), 300, 5);
             enemyTank.setDirect(2);//设置敌方坦克的炮管朝向
             //创建敌方坦克后，给敌方坦克加入子弹
             //启动敌人坦克线程
@@ -62,8 +62,18 @@ public class MyPanel extends JPanel implements KeyListener, Runnable {
         //画出坦克-封装成方法
         drawTank(myTank.getX(), myTank.getY(), g, myTank.getDirect(), myTank.getType());
         //判断子弹状态，是否要画出
-        if (myTank.shoot != null && myTank.shoot.isLive() == true) {
-            g.fillOval(myTank.shoot.getX() - 2, myTank.shoot.getY() - 2, 4, 4);
+
+        //此时绘制子弹集合
+        for(int i = 0 ; i < myTank.shoots.size() ; i++)
+        {
+            Shoot shoot = myTank.shoots.get(i);
+            if (shoot != null && shoot.isLive() == true) {
+                g.fillOval(shoot.getX() - 2, shoot.getY() - 2, 4, 4);
+            }
+            else
+            {
+                myTank.shoots.remove(shoot);
+            }
         }
 
         //如果bombs集合中有对象，就画出
@@ -235,8 +245,14 @@ public class MyPanel extends JPanel implements KeyListener, Runnable {
         } else if (e.getKeyCode() == KeyEvent.VK_D) {
             myTank.setDirect(1);//按下D键时坦克朝右
             myTank.removeD();//坦克向右移动
-        } else if (e.getKeyCode() == KeyEvent.VK_J) {
+        } else if (e.getKeyCode() == KeyEvent.VK_J) {//按j射击
+            //判断我方的子弹是否销毁
+//            if(myTank.shoot == null || myTank.shoot.isLive() == false)
+//            {
+//                myTank.shotEnemyTank();
+//            }
             myTank.shotEnemyTank();
+
         }
         this.repaint();//让面板重绘
     }
