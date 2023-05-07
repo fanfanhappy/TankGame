@@ -280,6 +280,7 @@ public class MyPanel extends JPanel implements KeyListener, Runnable {
                     hitEnemyTank(myTank.shoot, enemyTank);
                 }
             }
+            
             this.repaint();
         }
     }
