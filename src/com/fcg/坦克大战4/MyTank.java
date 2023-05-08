@@ -11,6 +11,7 @@ public class MyTank extends Tank {
     private int type = 0;
     Shoot shoot = null;
     Vector<Shoot> shoots = new Vector<>();
+    boolean isLive = true;
 
     public MyTank(int x, int y, int speed) {
         super(x, y, speed);

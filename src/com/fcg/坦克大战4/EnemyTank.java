@@ -31,6 +31,41 @@ public class EnemyTank extends Tank implements Runnable{
     public void run() {
         while(true)
         {
+            //如果子弹集合里没有子弹了就新创建一个
+            if(isLive && shoots.size() < 3)
+            {
+                Shoot s = null;
+                //判断坦克的方向创建对于的子弹
+                switch(getDirect())
+                {
+
+                    case 0://朝上
+                    {
+                        s = new Shoot(getX() + 20 , getY() , 0);
+                        break;
+
+                    }
+                    case 1:
+                    {
+                        s = new Shoot(getX() + 60 , getY() + 20 , 1);
+                        break;
+                    }
+                    case 2:
+                    {
+                        s = new Shoot(getX() + 20 , getY() + 60, 2);
+                        break;
+                    }
+                    case 3:
+                    {
+                        s = new Shoot(getX() , getY() + 20 , 3);
+                        break;
+                    }
+                }
+                shoots.add(s);
+                //启动线程
+                new Thread(s).start();
+
+            }
             //根据敌人的坦克方向来继续移动
             switch (getDirect())
             {
